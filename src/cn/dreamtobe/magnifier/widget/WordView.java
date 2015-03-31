@@ -20,8 +20,6 @@ import java.util.List;
 public class WordView extends EditText {
 	private final static String TAG = "MagnifierForWord.WordView";
 
-	private int off; //字符串的偏移值
-
 	public WordView(Context context) {
 		super(context);
 		initialize();
@@ -70,9 +68,9 @@ public class WordView extends EditText {
 
 						Log.d(TAG, event.getY() + ", " + event.getX());
 						line = layout.getLineForVertical(getScrollY() + (int) event.getY());
-						off = layout.getOffsetForHorizontal(line, (int) event.getX());
+						final int index = layout.getOffsetForHorizontal(line, (int) event.getX());
 
-						Word w = getWord(off);
+						Word w = getWord(index);
 
 						if (w != null) {
 							Selection.setSelection(getEditableText(), w.getStart(), w.getEnd());
