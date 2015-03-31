@@ -26,5 +26,6 @@ public class MainActivity extends Activity {
 		wordView.setText(DEMO_WORDS);
 		wordView.setBackgroundColor(Color.WHITE);
 		wordView.setTextColor(Color.BLACK);
+		return wordView;
 	}
 }
